@@ -27,3 +27,16 @@ fun isValidIPv4(address:String):Boolean{
     return true
 
 }
+
+
+fun main(){
+
+    println("Enter Your IPv4 ")
+
+    var ipv4= readlnOrNull()
+
+    var result= isValidIPv4(ipv4!!)
+
+    println("Your IPv4 is : $result")
+
+}
