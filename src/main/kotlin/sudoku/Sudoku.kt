@@ -3,8 +3,7 @@ package sudoku
 
 fun isValidSudoku(board: List<CharArray>): Boolean {
 
-    return (!checkSymbolsAndZero(board)
-            &&!checkImpty(board)&&
+    return (!checkSymbolsAndZero(board)&&
             !checkRow(board)&&
             !checkColumn(board)&&
             !checkSunbGrid(board)&&
@@ -18,7 +17,7 @@ fun checkRow(board: List<CharArray>):Boolean{
 
     for(row in board){
 
-        var set= mutableSetOf<Char>()
+        val set= mutableSetOf<Char>()
         for(j in row){
 
             if(j!='_'&&j in set)return true
@@ -33,11 +32,11 @@ fun checkRow(board: List<CharArray>):Boolean{
 fun checkColumn(board: List<CharArray>):Boolean{
 
     for (column in board[0].indices){
-        var set = mutableSetOf<Char>()
+        val set = mutableSetOf<Char>()
 
         for(row in board.indices){
 
-            var cell=board[row][column]
+            val cell=board[row][column]
             if(cell!='_'&& cell in set)return true
             set.add(cell)
 
@@ -45,12 +44,6 @@ fun checkColumn(board: List<CharArray>):Boolean{
     }
     return false
 }
-
-fun checkImpty(board: List<CharArray>):Boolean{
-
-    return board.isEmpty()
-}
-
 fun checkSymbolsAndZero(board: List<CharArray>):Boolean{
 
     for(row in board.indices) {
